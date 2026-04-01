@@ -1,146 +1,32 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>OrlandosLab</title>
-    <meta name="description" content="OrlandosLab — Alessio Orlando's personal lab. Code, cooking, 3D printing, electronics, and everything in between.">
-
-    <!-- Fonts -->
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,600;0,700;1,400&family=Nunito+Sans:wght@400;600;700&display=swap" rel="stylesheet">
-
-    <!-- AOS — Animate On Scroll -->
-    <link rel="stylesheet" href="https://unpkg.com/aos@2.3.4/dist/aos.css">
-
-    <link rel="stylesheet" href="styles.css">
-</head>
-<body>
-
-    <!-- Nav -->
-    <nav class="topbar">
-        <a class="brand" href="#top">OrlandosLab</a>
-        <div class="nav-links">
-            <a href="#projects">Projects</a>
-            <a href="#contact">Contact</a>
-        </div>
-    </nav>
-
-    <!-- Hero -->
-    <header class="hero" id="top">
-        <div class="hero-inner" data-aos="fade-up" data-aos-duration="1000">
-            <p class="eyebrow">Welcome to the lab</p>
-            <h1>Alessio Orlando</h1>
-            <p class="tagline">I make things — from code to kitchen to workshop.</p>
-            <a class="scroll-hint" href="#projects">See what I've been building &darr;</a>
-        </div>
-    </header>
-
-    <!-- Projects -->
-    <main>
-        <section class="section projects" id="projects">
-            <div class="section-header" data-aos="fade-up" data-aos-duration="800">
-                <p class="eyebrow">Projects</p>
-                <h2>A selection of things I've made</h2>
-            </div>
-
-            <div class="gallery">
-
-                <article class="card" data-aos="fade-up" data-aos-duration="700">
-                    <div class="card-img" style="background: linear-gradient(135deg, #3a6b5e, #6db89a);"></div>
-                    <div class="card-body">
-                        <span class="tag tag-software">Software</span>
-                        <h3>CLI Dashboard</h3>
-                        <p>A terminal-based system monitor with live charts and alerts, written in Python.</p>
-                    </div>
-                </article>
-
-                <article class="card" data-aos="fade-up" data-aos-duration="700" data-aos-delay="80">
-                    <div class="card-img" style="background: linear-gradient(135deg, #c75b2e, #e8a87c);"></div>
-                    <div class="card-body">
-                        <span class="tag tag-cooking">Cooking</span>
-                        <h3>Sourdough Series</h3>
-                        <p>Documenting the journey from starter to perfect crust — failures and all.</p>
-                    </div>
-                </article>
-
-                <article class="card" data-aos="fade-up" data-aos-duration="700" data-aos-delay="160">
-                    <div class="card-img" style="background: linear-gradient(135deg, #5c6bc0, #9fa8da);"></div>
-                    <div class="card-body">
-                        <span class="tag tag-3dprint">3D Print</span>
-                        <h3>Modular Desk Organizer</h3>
-                        <p>Snap-fit parametric modules designed in OpenSCAD, printed at home.</p>
-                    </div>
-                </article>
-
-                <article class="card" data-aos="fade-up" data-aos-duration="700">
-                    <div class="card-img" style="background: linear-gradient(135deg, #6d4c7d, #b39ddb);"></div>
-                    <div class="card-body">
-                        <span class="tag tag-electronics">Electronics</span>
-                        <h3>LED Matrix Clock</h3>
-                        <p>ESP32-driven pixel clock with weather and Spotify integration.</p>
-                    </div>
-                </article>
-
-                <article class="card" data-aos="fade-up" data-aos-duration="700" data-aos-delay="80">
-                    <div class="card-img" style="background: linear-gradient(135deg, #2e7d6f, #80cbc4);"></div>
-                    <div class="card-body">
-                        <span class="tag tag-software">Software</span>
-                        <h3>Smart Home Hub</h3>
-                        <p>Self-hosted home automation dashboard pulling from MQTT, Zigbee, and HTTP APIs.</p>
-                    </div>
-                </article>
-
-                <article class="card" data-aos="fade-up" data-aos-duration="700" data-aos-delay="160">
-                    <div class="card-img" style="background: linear-gradient(135deg, #bf360c, #ff8a65);"></div>
-                    <div class="card-body">
-                        <span class="tag tag-cooking">Cooking</span>
-                        <h3>Fermented Hot Sauce</h3>
-                        <p>Lacto-fermented chili sauce aged for weeks. Smoky, tangy, relentlessly spicy.</p>
-                    </div>
-                </article>
-
-                <article class="card" data-aos="fade-up" data-aos-duration="700">
-                    <div class="card-img" style="background: linear-gradient(135deg, #37474f, #78909c);"></div>
-                    <div class="card-body">
-                        <span class="tag tag-3dprint">3D Print</span>
-                        <h3>Custom Keyboard Case</h3>
-                        <p>Split ergonomic enclosure with tenting legs, designed for my daily driver build.</p>
-                    </div>
-                </article>
-
-                <article class="card" data-aos="fade-up" data-aos-duration="700" data-aos-delay="80">
-                    <div class="card-img" style="background: linear-gradient(135deg, #4a148c, #ce93d8);"></div>
-                    <div class="card-body">
-                        <span class="tag tag-electronics">Electronics</span>
-                        <h3>DIY Synth Module</h3>
-                        <p>Analog oscillator module for a Eurorack-compatible modular synth setup.</p>
-                    </div>
-                </article>
-
-            </div>
-        </section>
-
-        <!-- Contact -->
-        <section class="section contact" id="contact" data-aos="fade-up" data-aos-duration="800">
-            <p class="eyebrow">Say hello</p>
-            <h2>Want to talk, collaborate, or just say hi?</h2>
-            <div class="contact-links">
-                <a href="mailto:hello@orlandoslab.com">hello@orlandoslab.com</a>
-                <span class="separator">&middot;</span>
-                <a href="https://github.com/AlessiOrl" target="_blank" rel="noopener noreferrer">GitHub</a>
-            </div>
-        </section>
-    </main>
-
-    <!-- Footer -->
-    <footer class="site-footer">
-        <p>&copy; 2026 OrlandosLab &mdash; Alessio Orlando</p>
-    </footer>
-
-    <!-- AOS init -->
-    <script src="https://unpkg.com/aos@2.3.4/dist/aos.js"></script>
-    <script>AOS.init({ once: true });</script>
-</body>
+    <meta
+      name="description"
+      content="Alessio Orlando builds systems, automations, local AI workflows, custom hardware, and a life around coffee, making, and experimentation."
+    />
+    <meta
+      name="theme-color"
+      content="#0a0a0f"
+      media="(prefers-color-scheme: dark)"
+    />
+    <meta
+      name="theme-color"
+      content="#f6f0e8"
+      media="(prefers-color-scheme: light)"
+    />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;500;700;800&display=swap"
+      rel="stylesheet"
+    />
+  </head>
+  <body>
+    <div id="root"></div>
+    <script type="module" src="/src/main.tsx"></script>
+  </body>
 </html>
