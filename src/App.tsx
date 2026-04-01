@@ -1,42 +1,54 @@
-import { motion } from 'framer-motion';
-import { BeyondCode } from './components/BeyondCode';
-import { EasterEggOverlay } from './components/EasterEggOverlay';
-import { Footer } from './components/Footer';
-import { Hero } from './components/Hero';
-import { MakerMindset } from './components/MakerMindset';
-import { Navbar } from './components/Navbar';
-import { Systems } from './components/Systems';
-import { WhatIBuild } from './components/WhatIBuild';
-import { navItems } from './data';
-import { useDarkMode } from './hooks/useDarkMode';
-import { useEasterEgg } from './hooks/useEasterEgg';
-import { useScrollProgress } from './hooks/useScrollProgress';
+import { ThemeProvider } from './context/ThemeContext'
+import { NoiseOverlay } from './components/ui/NoiseOverlay'
+import { ThemeToggle } from './components/ui/ThemeToggle'
+import { ScrollProgress } from './components/ui/ScrollProgress'
+import { SectionTransition } from './components/ui/SectionTransition'
+import { HeroSection } from './components/sections/HeroSection'
+import { IntroSection } from './components/sections/IntroSection'
+import { WhatIBuildSection } from './components/sections/WhatIBuildSection'
+import { ProjectsSection } from './components/sections/ProjectsSection'
+import { SystemsSection } from './components/sections/SystemsSection'
+import { MakerSection } from './components/sections/MakerSection'
+import { AutomationSection } from './components/sections/AutomationSection'
+import { LifestyleSection } from './components/sections/LifestyleSection'
+import { FooterSection } from './components/sections/FooterSection'
 
-export default function App() {
-  const { theme, toggleTheme } = useDarkMode();
-  const scrollProgress = useScrollProgress();
-  const { easterEggActive, registerBrandTap, dismissEasterEgg } = useEasterEgg();
-
+function App() {
   return (
-    <div className="min-h-screen bg-[var(--page-background)] text-[var(--page-foreground)] transition-colors duration-300">
-      <motion.div
-        className="fixed left-0 top-0 z-[60] h-1 origin-left bg-gradient-to-r from-teal-300 via-emerald-400 to-amber-300"
-        style={{ width: `${scrollProgress}%` }}
-      />
-
-      <Navbar items={navItems} theme={theme} onToggleTheme={toggleTheme} onBrandTap={registerBrandTap} />
-
-      <EasterEggOverlay active={easterEggActive} onClose={dismissEasterEgg} />
+    <ThemeProvider>
+      <NoiseOverlay />
+      <ScrollProgress />
+      <ThemeToggle />
 
       <main>
-        <Hero />
-        <WhatIBuild />
-        <Systems />
-        <MakerMindset />
-        <BeyondCode />
-      </main>
+        <HeroSection />
 
-      <Footer />
-    </div>
-  );
+        <IntroSection />
+
+        <SectionTransition text="Things start messy. They get better over time." />
+
+        <WhatIBuildSection />
+
+        <SectionTransition text="Some ideas stay ideas. Others become systems." />
+
+        <ProjectsSection />
+
+        <SectionTransition text="Not everything is planned. Most things evolve." />
+
+        <SystemsSection />
+
+        <MakerSection />
+
+        <SectionTransition text="There's always another version to build." />
+
+        <AutomationSection />
+
+        <LifestyleSection />
+
+        <FooterSection />
+      </main>
+    </ThemeProvider>
+  )
 }
+
+export default App
