@@ -1,0 +1,184 @@
+@import "tailwindcss";
+
+/* ===== Custom Properties ===== */
+:root {
+  --color-bg: #f5f0e8;
+  --color-bg-secondary: #ebe4d8;
+  --color-bg-card: #fff8f0;
+  --color-text: #2a2420;
+  --color-text-secondary: #6b5e52;
+  --color-text-muted: #9a8d80;
+  --color-accent: #c8956a;
+  --color-accent-hover: #b07a52;
+  --color-border: #d4c8b8;
+  --color-shadow: rgba(42, 36, 32, 0.12);
+  --color-shadow-strong: rgba(42, 36, 32, 0.25);
+  --color-tape: rgba(255, 248, 220, 0.7);
+  --color-pin: #c8956a;
+  --color-paper: #faf6f0;
+  --color-paper-dark: #f0e8dc;
+  --color-terminal-bg: #1a1612;
+  --color-terminal-text: #c8956a;
+
+  --font-heading: "Playfair Display", Georgia, serif;
+  --font-body: "Inter", system-ui, sans-serif;
+  --font-handwritten: "Caveat", cursive;
+  --font-mono: "JetBrains Mono", monospace;
+
+  --noise-opacity: 0.03;
+}
+
+.dark {
+  --color-bg: #1a1612;
+  --color-bg-secondary: #241f1a;
+  --color-bg-card: #2a2420;
+  --color-text: #f0e8dc;
+  --color-text-secondary: #b8a898;
+  --color-text-muted: #7a6e62;
+  --color-accent: #c8956a;
+  --color-accent-hover: #d4a57a;
+  --color-border: #3a332c;
+  --color-shadow: rgba(0, 0, 0, 0.3);
+  --color-shadow-strong: rgba(0, 0, 0, 0.5);
+  --color-tape: rgba(60, 52, 40, 0.7);
+  --color-pin: #d4a57a;
+  --color-paper: #2a2420;
+  --color-paper-dark: #1e1a16;
+  --color-terminal-bg: #0f0d0a;
+  --color-terminal-text: #c8956a;
+
+  --noise-opacity: 0.04;
+}
+
+/* ===== Base Styles ===== */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+body {
+  font-family: var(--font-body);
+  background-color: var(--color-bg);
+  color: var(--color-text);
+  overflow-x: hidden;
+  transition: background-color 0.4s ease, color 0.4s ease;
+}
+
+/* ===== Typography ===== */
+.font-heading {
+  font-family: var(--font-heading);
+}
+
+.font-handwritten {
+  font-family: var(--font-handwritten);
+}
+
+.font-mono {
+  font-family: var(--font-mono);
+}
+
+/* ===== Noise/Grain Overlay ===== */
+.noise-overlay {
+  position: fixed;
+  inset: 0;
+  z-index: 9999;
+  pointer-events: none;
+  opacity: var(--noise-opacity);
+  background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
+  background-repeat: repeat;
+  background-size: 256px 256px;
+}
+
+/* ===== Paper Texture ===== */
+.paper-texture {
+  background-image:
+    radial-gradient(ellipse at 20% 50%, var(--color-bg-secondary) 0%, transparent 60%),
+    radial-gradient(ellipse at 80% 20%, var(--color-bg-secondary) 0%, transparent 50%);
+}
+
+/* ===== Tape Effect ===== */
+.tape {
+  position: absolute;
+  width: 60px;
+  height: 20px;
+  background: var(--color-tape);
+  backdrop-filter: blur(1px);
+  opacity: 0.8;
+}
+
+.tape-top {
+  top: -10px;
+  left: 50%;
+  transform: translateX(-50%) rotate(-2deg);
+}
+
+/* ===== Scroll Progress Bar ===== */
+.scroll-progress {
+  position: fixed;
+  top: 0;
+  left: 0;
+  height: 2px;
+  background: var(--color-accent);
+  z-index: 10000;
+  transform-origin: left;
+}
+
+/* ===== Selection ===== */
+::selection {
+  background-color: var(--color-accent);
+  color: var(--color-bg);
+}
+
+/* ===== Custom Scrollbar ===== */
+::-webkit-scrollbar {
+  width: 6px;
+}
+
+::-webkit-scrollbar-track {
+  background: var(--color-bg);
+}
+
+::-webkit-scrollbar-thumb {
+  background: var(--color-border);
+  border-radius: 3px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: var(--color-accent);
+}
+
+/* ===== Reduced Motion ===== */
+@media (prefers-reduced-motion: reduce) {
+  * {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
+}
+
+/* ===== Blinking Cursor ===== */
+@keyframes blink {
+  0%, 50% { opacity: 1; }
+  51%, 100% { opacity: 0; }
+}
+
+.cursor-blink {
+  animation: blink 1s step-end infinite;
+}
+
+/* ===== Subtle Float ===== */
+@keyframes float {
+  0%, 100% { transform: translateY(0px) rotate(var(--float-rotate, 0deg)); }
+  50% { transform: translateY(-6px) rotate(var(--float-rotate, 0deg)); }
+}
+
+.animate-float {
+  animation: float 6s ease-in-out infinite;
+}
