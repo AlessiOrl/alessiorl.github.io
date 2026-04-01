@@ -65,6 +65,16 @@ a {
   isolation: isolate;
 }
 
+.matrix-column {
+  animation-name: matrix-fall;
+  animation-timing-function: linear;
+  animation-iteration-count: infinite;
+}
+
+.glow-orb {
+  animation: glow-drift 7s ease-in-out infinite;
+}
+
 .light-surface {
   background: rgba(255, 255, 255, 0.72);
   border-color: rgba(161, 161, 170, 0.28);
@@ -73,4 +83,31 @@ a {
 .dark .light-surface {
   background: rgba(10, 10, 15, 0.72);
   border-color: rgba(255, 255, 255, 0.1);
+}
+
+@keyframes matrix-fall {
+  0% {
+    transform: translateY(-15%);
+    opacity: 0;
+  }
+
+  15% {
+    opacity: 0.75;
+  }
+
+  100% {
+    transform: translateY(115%);
+    opacity: 0;
+  }
+}
+
+@keyframes glow-drift {
+  0%,
+  100% {
+    transform: translate3d(0, 0, 0) scale(1);
+  }
+
+  50% {
+    transform: translate3d(0, -10px, 0) scale(1.06);
+  }
 }

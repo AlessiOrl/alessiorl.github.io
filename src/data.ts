@@ -23,6 +23,13 @@ export type Project = {
   accent: string;
   icon: LucideIcon;
   stats: string[];
+  previewTitle: string;
+  previewKind: 'nodes' | 'chat' | 'grid';
+  previewRows: Array<{
+    label: string;
+    value: string;
+    tone: 'teal' | 'amber' | 'violet';
+  }>;
 };
 
 export type SystemNode = {
@@ -56,36 +63,58 @@ export const terminalLines = [
   'zigbee link macropad --pair',
   'print job start enclosure-v12',
   'brew espresso --origin ethiopia',
+  'ferment agrumello --batch april',
 ];
 
 export const projects: Project[] = [
   {
     title: 'ZigbeeMacropad',
     description:
-      'A custom hardware macropad that treats Zigbee like a native creative control surface instead of an afterthought.',
+      'A custom macropad project where hardware design, wireless control, and tactile interaction are treated as one system.',
     meta: 'Hardware / Zigbee / Input Design',
     accent: 'from-emerald-400/30 via-cyan-300/15 to-transparent',
     icon: CircuitBoard,
     stats: ['Custom PCB thinking', 'Wireless controls', 'Built for daily use'],
+    previewTitle: 'mesh control / pair map',
+    previewKind: 'nodes',
+    previewRows: [
+      { label: 'latency', value: '24ms', tone: 'teal' },
+      { label: 'profiles', value: '06', tone: 'violet' },
+      { label: 'battery', value: '92%', tone: 'amber' },
+    ],
   },
   {
     title: 'Codee',
     description:
-      'A Telegram assistant bot shaped around useful interactions, automation hooks, and pragmatic AI-powered workflows.',
+      'A Telegram assistant shaped around useful replies, automation hooks, and AI that helps rather than postures.',
     meta: 'Telegram / Bot / AI Workflows',
     accent: 'from-sky-400/25 via-blue-400/20 to-transparent',
     icon: Bot,
     stats: ['Conversation-first UX', 'Actionable replies', 'Always-on utility'],
+    previewTitle: 'telegram / command trace',
+    previewKind: 'chat',
+    previewRows: [
+      { label: 'intent', value: 'parsed', tone: 'teal' },
+      { label: 'action', value: 'queued', tone: 'amber' },
+      { label: 'reply', value: '<1s', tone: 'violet' },
+    ],
   },
   {
     title: 'GitHub Portfolio',
     description:
-      'A broader archive of experiments across automation, infrastructure, tools, and systems that keep evolving in public.',
+      'A living archive of experiments across infrastructure, tooling, automation, and whatever became too interesting not to ship.',
     meta: 'Open Source / Experiments / Shipping',
     href: 'https://github.com/AlessiOrl',
     accent: 'from-fuchsia-400/20 via-pink-400/15 to-transparent',
     icon: Github,
     stats: ['Live code history', 'Multiple domains', 'Continuous iteration'],
+    previewTitle: 'repo signal / public work',
+    previewKind: 'grid',
+    previewRows: [
+      { label: 'repos', value: 'active', tone: 'teal' },
+      { label: 'pace', value: 'steady', tone: 'amber' },
+      { label: 'scope', value: 'wide', tone: 'violet' },
+    ],
   },
 ];
 
@@ -159,6 +188,7 @@ export const makerSignals = [
   '3D printing is a problem-solving tool, not a shelf trophy.',
   'If a solution does not exist, design it.',
   'Electronics, software, food, and automation all reward iteration.',
+  'The best objects are the ones that quietly remove friction every day.',
 ];
 
 export const heroMetrics = [
@@ -174,7 +204,7 @@ export const heroMetrics = [
   },
   {
     label: 'Current mode',
-    value: 'shipping experiments locally first',
+    value: 'shipping experiments before they become theories',
     icon: Cpu,
   },
 ];

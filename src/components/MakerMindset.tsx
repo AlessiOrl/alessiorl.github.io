@@ -1,6 +1,7 @@
 import { motion } from 'framer-motion';
-import { Layers3, Wrench } from 'lucide-react';
+import { Wrench } from 'lucide-react';
 import { makerSignals } from '../data';
+import { BlueprintIllustration } from './BlueprintIllustration';
 import { SectionHeading } from './SectionHeading';
 
 export function MakerMindset() {
@@ -10,11 +11,11 @@ export function MakerMindset() {
         <div className="grid gap-12 lg:grid-cols-[0.9fr_1.1fr] lg:items-center">
           <SectionHeading
             eyebrow="// maker"
-            title="A maker mindset means treating every constraint like a design prompt."
+            title="Making things by hand changes how you design systems on screen."
             description={
               <p>
-                3D printing, DIY electronics, and custom fixes all come from the same instinct: if a useful thing does not exist yet,
-                it is probably time to prototype it.
+                3D printing, DIY electronics, and custom fixes all come from the same instinct: if the useful version does not exist,
+                prototype it, tune it, and keep the lessons for the next domain.
               </p>
             }
           />
@@ -28,14 +29,12 @@ export function MakerMindset() {
               transition={{ duration: 0.7, ease: [0.22, 1, 0.36, 1] }}
             >
               <div className="rounded-[2rem] border border-zinc-300/70 bg-white/70 p-6 dark:border-white/8 dark:bg-black/15">
-                <div className="inline-flex h-14 w-14 items-center justify-center rounded-2xl border border-teal-400/20 bg-teal-400/10 text-teal-500 dark:text-teal-300">
-                  <Layers3 size={24} />
-                </div>
+                <BlueprintIllustration />
                 <h3 className="mt-6 text-2xl font-semibold tracking-[-0.04em] text-zinc-950 dark:text-zinc-100">
-                  3D printing as a workflow
+                  3D printing as applied design
                 </h3>
                 <p className="mt-4 text-sm leading-7 text-zinc-600 dark:text-zinc-400">
-                  Designing personal solutions, iterating on fit and function, and building exactly what daily life actually needs.
+                  Personal fixtures, quick prototypes, and better small objects. The goal is less decoration and more solved friction.
                 </p>
               </div>
 

@@ -11,9 +11,10 @@ type NavbarProps = {
   items: NavItem[];
   theme: 'dark' | 'light';
   onToggleTheme: () => void;
+  onBrandTap: () => void;
 };
 
-export function Navbar({ items, theme, onToggleTheme }: NavbarProps) {
+export function Navbar({ items, theme, onToggleTheme, onBrandTap }: NavbarProps) {
   const [menuOpen, setMenuOpen] = useState(false);
 
   const closeMenu = () => setMenuOpen(false);
@@ -27,7 +28,14 @@ export function Navbar({ items, theme, onToggleTheme }: NavbarProps) {
         transition={{ duration: 0.6, ease: [0.22, 1, 0.36, 1] }}
       >
         <div className="mx-auto flex max-w-7xl items-center justify-between rounded-full border border-white/10 bg-zinc-950/70 px-5 py-3 shadow-[0_20px_80px_rgba(0,0,0,0.35)] backdrop-blur-xl dark:border-white/10 dark:bg-zinc-950/70 light-surface sm:px-6">
-          <a href="#top" className="group inline-flex items-center gap-3" onClick={closeMenu}>
+          <a
+            href="#top"
+            className="group inline-flex items-center gap-3"
+            onClick={() => {
+              closeMenu();
+              onBrandTap();
+            }}
+          >
             <span className="inline-flex h-10 w-10 items-center justify-center rounded-full border border-teal-400/20 bg-teal-400/10 font-mono text-xs font-bold uppercase tracking-[0.2em] text-teal-300">
               AO
             </span>
@@ -35,7 +43,7 @@ export function Navbar({ items, theme, onToggleTheme }: NavbarProps) {
               <span className="font-mono text-[0.7rem] uppercase tracking-[0.32em] text-zinc-500 dark:text-zinc-500">
                 OrlandosLab
               </span>
-              <span className="text-sm font-medium text-zinc-900 dark:text-zinc-100">Builder in public and at home</span>
+              <span className="text-sm font-medium text-zinc-900 dark:text-zinc-100">Code, circuits, automations, rituals</span>
             </div>
           </a>
 

@@ -23,13 +23,18 @@ export function Hero() {
           </div>
 
           <h1 className="mt-8 max-w-4xl text-5xl font-semibold tracking-[-0.06em] text-zinc-950 dark:text-zinc-50 sm:text-6xl lg:text-8xl">
-            Building systems with the same energy I bring to the lab, the workshop, and the kitchen.
+            I build the layer beneath a more interesting everyday life.
           </h1>
 
           <p className="mt-6 max-w-2xl text-lg leading-8 text-zinc-600 dark:text-zinc-400 sm:text-xl">
-            Alessio Orlando blends software engineering, self-hosted infrastructure, local AI, electronics,
-            home automation, 3D printing, coffee rituals, and hands-on experimentation into one evolving personal system.
+            Alessio Orlando works across software engineering, self-hosted infrastructure, local AI, electronics,
+            automation, 3D printing, and the slower rituals that make technical work feel human.
           </p>
+
+          <div className="mt-8 inline-flex max-w-xl items-center gap-3 rounded-full border border-zinc-300/70 bg-white/75 px-4 py-2 text-sm text-zinc-700 shadow-[0_15px_40px_rgba(15,23,42,0.08)] dark:border-white/8 dark:bg-white/5 dark:text-zinc-300 dark:shadow-none">
+            <span className="h-2.5 w-2.5 rounded-full bg-emerald-400" />
+            Quiet infrastructure. Useful AI. Hardware that earns its place. Coffee worth dialing in twice.
+          </div>
 
           <div className="mt-10 flex flex-col gap-4 sm:flex-row">
             <a
@@ -114,7 +119,7 @@ export function Hero() {
               </div>
 
               <div className="mt-6 rounded-2xl border border-dashed border-teal-300/20 bg-teal-300/6 p-4 text-sm leading-7 text-zinc-300">
-                Current focus: building useful systems that feel crafted, reliable, and personal from the inside out.
+                Current focus: building systems that feel invisible when they work and unforgettable when you inspect them.
               </div>
             </div>
           </div>
