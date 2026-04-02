@@ -29,6 +29,8 @@ const heroQuotes = [
   },
 ]
 
+const QUOTE_ROTATION_INTERVAL_MS = 9000
+
 export function HeroSection() {
   const ref = useRef<HTMLDivElement>(null)
   const [quoteIndex, setQuoteIndex] = useState(0)
@@ -49,15 +51,17 @@ export function HeroSection() {
   // Rotate quotes
   useEffect(() => {
     const interval = setInterval(() => {
-      setQuoteIndex((prev: number) => (prev + 1) % heroQuotes.length)
-    }, 6000)
+      setQuoteIndex((prevIndex) => (prevIndex + 1) % heroQuotes.length)
+    }, QUOTE_ROTATION_INTERVAL_MS)
+
     return () => clearInterval(interval)
   }, [])
 
   return (
     <section
+      id="intro"
       ref={ref}
-      className="relative min-h-screen flex items-center justify-center overflow-hidden"
+      className="relative flex min-h-screen shrink-0 items-center justify-center overflow-hidden py-16 md:py-24"
     >
       {/* Scattered background elements */}
       <motion.div
@@ -104,12 +108,12 @@ export function HeroSection() {
 
       {/* Main content */}
       <motion.div
-        className="relative z-10 text-center px-6 max-w-3xl mx-auto"
+        className="page-shell relative z-10 flex flex-col items-center text-center"
         style={{ opacity }}
       >
         {/* Subtle name */}
         <motion.p
-          className="font-handwritten text-base mb-8 tracking-wide"
+          className="mb-10 font-handwritten text-lg tracking-wide md:text-xl"
           style={{ color: 'var(--color-text-muted)' }}
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
@@ -119,7 +123,7 @@ export function HeroSection() {
         </motion.p>
 
         {/* Rotating quote */}
-        <div className="min-h-[120px] md:min-h-[100px] flex items-center justify-center">
+        <div className="mx-auto flex min-h-[180px] w-full max-w-5xl items-center justify-center md:min-h-[220px]">
           <AnimatePresence mode="wait">
             <motion.div
               key={quoteIndex}
@@ -127,7 +131,7 @@ export function HeroSection() {
               animate={{ opacity: 1, y: 0 }}
               exit={{ opacity: 0, y: -20 }}
               transition={{ duration: 0.8 }}
-              className="font-heading text-xl md:text-3xl lg:text-4xl leading-relaxed"
+              className="mx-auto w-full max-w-4xl font-heading text-3xl leading-tight text-center md:text-5xl lg:text-6xl"
               style={{ color: 'var(--color-text)' }}
             >
               {heroQuotes[quoteIndex].lines.map((line, i) => (
@@ -141,7 +145,7 @@ export function HeroSection() {
 
         {/* Scroll hint */}
         <motion.div
-          className="mt-16"
+          className="mt-20"
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}
           transition={{ delay: 2, duration: 1 }}
